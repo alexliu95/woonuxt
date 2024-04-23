@@ -4,9 +4,9 @@ const { resolve } = createResolver(import.meta.url);
 export default defineNuxtConfig({
   app: {
     head: {
-      titleTemplate: `%s | ${process.env.SITE_TITLE ?? 'WooNuxt'}`,
+      titleTemplate: `%s | ${process.env.SITE_TITLE ?? 'Finger-Fun'}`,
       htmlAttrs: { lang: 'en' },
-      link: [{ rel: 'icon', href: '/logo.svg', type: 'image/svg+xml' }],
+      link: [{ rel: 'icon', href: '/images/logo.png', type: 'image/svg+xml' }],
     },
     pageTransition: { name: 'page', mode: 'out-in' },
   },
