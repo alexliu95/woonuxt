@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { ref } from 'vue';
 import { tryOnMounted } from '@vueuse/core';
 
 //const { data } = await useAsyncGql('getProductCategories', { first: 6 });
