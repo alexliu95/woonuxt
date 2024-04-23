@@ -1,8 +1,18 @@
 <script lang="ts" setup>
+import { tryOnMounted } from '@vueuse/core';
+
 //const { data } = await useAsyncGql('getProductCategories', { first: 6 });
 //const productCategories = data.value?.productCategories?.nodes || [];
-const { data } = await useAsyncGql('getProducts', { first: 4 });
-const featureProducts = data.value?.products?.nodes ?? [];
+//const { data } = await useAsyncGql('getProducts', { first: 4 });
+//const featureProducts = data.value?.products?.nodes ?? [];
+
+const featureProducts = ref([]);
+async function fetchData() {
+    const { data } = await useAsyncGql('getProduct', { first: 4 });
+    featureProducts.value = data.value?.products?.nodes ?? [];
+}
+
+tryOnMounted(fetchData);
 
 useSeoMeta({
   title: `Home`,
