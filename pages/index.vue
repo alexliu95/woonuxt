@@ -9,7 +9,7 @@ import { tryOnMounted } from '@vueuse/core';
 
 const featureProducts = ref([]);
 async function fetchData() {
-    const { data } = await useAsyncGql('getProduct', { first: 4 });
+    const { data } = await useAsyncGql('getProducts', { first: 4, slug: 'finger-board' });
     featureProducts.value = data.value?.products?.nodes ?? [];
 }
 
@@ -34,8 +34,8 @@ useSeoMeta({
             <p class="text-center text-sm">Featured Products</p>
             <h2 class="text-lg font-semibold md:text-4xl">Popular Collections</h2>
         </div>
-        <div class="grid justify-center grid-cols-2 gap-4 mt-8 md:grid-cols-3 lg:grid-cols-6">
-            <span v-for="(product, i) in featureProducts" :key="i" class="w-full" :node="product" />
+        <div class="grid justify-center grid-cols-2 gap-4 mt-8 md:grid-cols-3 lg:grid-cols-4">
+            <ProductCard v-for="(product, i) in featureProducts" :key="i" class="w-full" :node="product"/>
         </div>
     </section>
 
