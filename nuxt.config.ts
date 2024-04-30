@@ -2,7 +2,11 @@ export default defineNuxtConfig({
   // Get all the pages, components, composables and plugins from the parent theme
   extends: ['./woonuxt_base'],
   components: [{ path: './components', pathPrefix: false }],
+  modules: ['nuxt-gtag'],
 
+  gtag: {
+    id: 'G-RYL4ZWVD01'
+  },
   /**
    * Depending on your servers capabilities, you may need to adjust the following settings.
    * It will affect the build time but also increase the reliability of the build process.
